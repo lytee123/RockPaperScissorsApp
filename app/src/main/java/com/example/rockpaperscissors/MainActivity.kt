@@ -13,12 +13,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        // This has the song start when the app launches
         var mediaPlayer = MediaPlayer.create(this, R.raw.sixth)
         mediaPlayer.start()
     }
 
 
     fun startGame(view: View){
+        //Intents are good for directing to another page
         val intent = Intent(this, MakeChoiceActivity::class.java)
         startActivity(intent)
     }

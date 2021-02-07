@@ -14,8 +14,10 @@ class MakeChoiceActivity : AppCompatActivity() {
 
 
     fun sendMessageRock(view: View) {
+        //Find the button, find the string attached to it
         val editText = findViewById<Button>(R.id.button9)
         val message = editText.text.toString()
+        //When going to the next page, bring along the name of the choice
         val intent = Intent(this, DisplayMessageActivity::class.java).apply {
             putExtra(EXTRA_MESSAGE, message)
         }
@@ -23,8 +25,10 @@ class MakeChoiceActivity : AppCompatActivity() {
     }
 
     fun sendMessagePaper(view: View) {
+        //Find the button, find the string attached to it
         val editText = findViewById<Button>(R.id.button3)
         val message = editText.text.toString()
+        //When going to the next page, bring along the name of the choice
         val intent = Intent(this, DisplayMessageActivity::class.java).apply {
             putExtra(EXTRA_MESSAGE, message)
         }
@@ -32,8 +36,10 @@ class MakeChoiceActivity : AppCompatActivity() {
     }
 
     fun sendMessageScissors(view: View) {
+        //Find the button, find the string attached to it
         val editText = findViewById<Button>(R.id.button2)
         val message = editText.text.toString()
+        //When going to the next page, bring along the name of the choice
         val intent = Intent(this, DisplayMessageActivity::class.java).apply {
             putExtra(EXTRA_MESSAGE, message)
         }

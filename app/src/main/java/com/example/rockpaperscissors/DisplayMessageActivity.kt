@@ -10,11 +10,12 @@ class DisplayMessageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_display_message)
 
-
+        //Assign value to the name that was passed by the Intent
         val userChoice = intent.getStringExtra(EXTRA_MESSAGE)
         val userImage = findViewById<ImageView>(R.id.imageView)
         var imgResId = R.drawable.rock
 
+        //When userChoice == "Rock", "Paper", or "Scissors". Else statement needed
         when(userChoice){
             "Rock" -> imgResId = R.drawable.rock
             "Paper" -> imgResId = R.drawable.paper
@@ -23,10 +24,14 @@ class DisplayMessageActivity : AppCompatActivity() {
         }
         userImage.setImageResource(imgResId)
 
+
         fun generateChoice(): String {
+            //Create list of [0,1,2]
             val list = (0..2)
+            //Shuffle the list, grab a random number
             val choice = list.shuffled().take(1)[0]
             val rps = arrayOf("Rock", "Paper", "Scissors")
+            //Take the index of the random number, and return the value
             return rps.elementAtOrElse(choice) { index -> "The value for index $index is undefined" }
         }
 
@@ -34,6 +39,7 @@ class DisplayMessageActivity : AppCompatActivity() {
         val compImage = findViewById<ImageView>(R.id.imageView4)
         var imgResId2 = R.drawable.rock
 
+        //When compChoice == "Rock", "Paper", or "Scissors". Else statement needed
         when(compChoice){
             "Rock" -> imgResId2 = R.drawable.rock
             "Paper" -> imgResId2 = R.drawable.paper
@@ -45,6 +51,7 @@ class DisplayMessageActivity : AppCompatActivity() {
 
         var display: String
 
+        //When true. This replaces nested if and else if statements.
         when{
             (userChoice == "Rock"  && compChoice == "Paper") -> display = "You Lose!"
             (userChoice == "Paper"  && compChoice == "Scissors")  -> display = "You Lose!"
@@ -53,7 +60,7 @@ class DisplayMessageActivity : AppCompatActivity() {
             else -> display = "You Win!"
         }
 
-
+        //Place the value of display in the TextView
         findViewById<TextView>(R.id.textView5).apply {
             text = display
         }
